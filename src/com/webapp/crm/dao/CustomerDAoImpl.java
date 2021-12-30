@@ -23,12 +23,41 @@ public class CustomerDAoImpl implements CustomerDAO {
 		Session appSession = sessionFactory.getCurrentSession();
 
 		@SuppressWarnings("deprecation")
-		Query<Customer> query = appSession.createQuery("from Customer");
+		Query<Customer> query = appSession.createQuery("from Customer order by name");
 
 		List<Customer> resList = query.getResultList();
 
 		return resList;
 
+	}
+
+	@Override
+	public void saveCustomer(Customer newCustomer) {
+		
+		Session appSession = sessionFactory.getCurrentSession();
+		
+		appSession.saveOrUpdate(newCustomer);
+		
+	}
+
+	@Override
+	public Customer getCustomerByID(int id) {
+		
+		Session appSession = sessionFactory.getCurrentSession();
+
+		Customer dbCopy = appSession.get(Customer.class, id); 
+		return dbCopy;
+	}
+
+	@Override
+	public void deleteById(int id) {
+		Session appSession = sessionFactory.getCurrentSession();
+		
+		Query<Customer> query = appSession.createQuery("delete from Customer where id=:customerId");
+		
+		query.setParameter("customerId", id);
+		
+		query.executeUpdate();
 	}
 
 }

@@ -22,4 +22,22 @@ public class CutsomerServicesImpl implements CustomerServices {
 		return customerDAO.getCustomers();
 	}
 
+	@Override
+	@Transactional
+	public void createNewCustomer(Customer newCustomer) {
+		customerDAO.saveCustomer(newCustomer);
+	}
+
+	@Override
+	@Transactional
+	public Customer getCustomerByID(int id) {
+		return customerDAO.getCustomerByID(id);
+	}
+
+	@Override
+	@Transactional
+	public void delete(int id) {
+		customerDAO.deleteById(id);
+	}
+
 }
