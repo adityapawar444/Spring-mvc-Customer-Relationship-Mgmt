@@ -13,5 +13,7 @@ public interface CustomerDAO {
 	public Customer getCustomerByID(int id);
 
 	public void deleteById(int id);
+
+	public List<Customer> getCustomerByName(String queryName);
 	
 }

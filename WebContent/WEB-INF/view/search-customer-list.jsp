@@ -32,8 +32,8 @@
 
 
 			<form:form action="search" method="GET">
-							Search Customer : <input type="text" value="" name="queryName" />
-				<input type="submit" value="Search" class="add-button"/>
+							Search Customer : <input type="text" name="queryName" />
+				<input type="submit" value="Search" class="add-button" />
 			</form:form>
 
 			<input type="button" value="Add Customer" class="add-button"
@@ -41,6 +41,7 @@
 
 
 			<!--  add our html table here -->
+			<p>Showing result for "${queryName}"</p>
 
 			<table>
 				<tr>
@@ -81,6 +82,11 @@
 		</div>
 
 	</div>
+	<div style=""></div>
+
+	<p>
+		<a href="${pageContext.request.contextPath}/customer/list">Home</a>
+	</p>
 
 </body>
 
