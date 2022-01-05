@@ -73,9 +73,9 @@ public class CutomerController {
 		List<Customer> resList = customerServices.searchName(queryName);
 
 		model.addAttribute("customerList", resList);
-		//model.addAttribute("queryName", queryName);
+		model.addAttribute("queryName", queryName);
 		
-		return "search-customer-list";
+		return "customers-list";
 	}
 
 }

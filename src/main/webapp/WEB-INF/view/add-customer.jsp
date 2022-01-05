@@ -21,6 +21,22 @@
 		</div>
 	</div>
 
+	<div>
+		<hr>
+		<p>
+			Welcome
+			<security:authentication property="principal.username" />
+			You have logged in as:
+			<security:authentication property="principal.authorities" />
+		</p>
+		<form:form action="${pageContext.request.contextPath}/logout"
+			method="POST">
+			<input type="submit" value="Logout" class="add-button" />
+		</form:form>
+		<hr>
+
+	</div>
+
 	<form:form action="saveCustomer" modelAttribute="customer"
 		method="POST">
 
@@ -50,6 +66,8 @@
 	</form:form>
 
 	<div style=""></div>
+	
+	<hr>
 
 	<p>
 		<a href="${pageContext.request.contextPath}/customer/list">Home</a>

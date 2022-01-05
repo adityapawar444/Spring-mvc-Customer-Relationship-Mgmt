@@ -29,7 +29,7 @@ public class TestDbServlet extends HttpServlet {
 		String driver = "com.mysql.cj.jdbc.Driver";
 		String jdbcUrl = "jdbc:mysql://localhost:3306/crm_db?useSSL=false&serverTimezone=UTC";
 		
-		try {
+		/*try {
 			
 			PrintWriter out = response.getWriter();
 			
@@ -47,7 +47,7 @@ public class TestDbServlet extends HttpServlet {
 			
 		}catch (Exception e) {
 			e.printStackTrace();
-		}
+		}*/
 	}
 
 }
