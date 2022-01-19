@@ -9,6 +9,29 @@ mobile int(11) default 0,
 primary key(id)
 );
 
+create table users(
+username varchar(50) not null,
+password varchar(50) not null,
+enabled tinyint(1) not null,
+primary key(username)
+);
+
+create table authorities(
+username varchar(50) not null,
+authority varchar(50) not null,
+unique key auth_idx (username,authority),
+constraint auth_fk foreign key (username) references users (username) 
+);
+
+insert into users values
+('Admin','{noop}test123',1),
+('Guest','{noop}Guest',1);
+
+insert into authorities values 
+('Admin', 'GUEST'),
+('Admin', 'ADMINISTRATOR'),
+('Guest', 'GUEST');
+
 insert into customer values 
 (1,'Robb Stark', 'king_in_the_north@winterfell.official.com', 1919191919 ),
 (2,'Sansa Stark', 'lady_stark@winterfell.official.com', 1818181818 ),
