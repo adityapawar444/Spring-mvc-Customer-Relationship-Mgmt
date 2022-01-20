@@ -33,6 +33,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 		http.authorizeRequests()
 		//anyRequest().authenticated(). (for login without role based access)
+		.antMatchers("/").permitAll()
 		.antMatchers("/customer/list").hasAnyRole("GUEST","ADMINISTRATOR")
 		.antMatchers("/customer/**").hasRole("ADMINISTRATOR")
 		.and().formLogin().loginPage("/login").loginProcessingUrl("/authenticateUser").permitAll()
